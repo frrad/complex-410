@@ -1,0 +1,198 @@
+\documentclass[11pt]{article}
+
+
+
+
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\pagestyle{fancyplain}
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 410-3: Complex Analysis}
+
+
+
+\title{Homework 1}
+\author{Frederick Robinson}
+\date{4 April 2011}
+\maketitle
+
+\section*{Chapter 1}
+
+
+\section{Problem  29}
+\subsection{Question}
+Compute each of the following derivatives:
+\begin{enumerate}
+\item $\displaystyle \frac{\partial}{\partial z} (x^2 - y )$
+\item $\displaystyle \frac{\partial}{\partial \overline{z}}(x + y^2) $
+\item $\displaystyle \frac{\partial^4}{\partial z \partial \overline{z}^3} (x y ^2) $
+\item $\displaystyle \frac{\partial^2}{\partial \overline{z} \partial z}  ( \overline{z} z^2 - z^3 \overline{z} + 7 z ) $
+\end{enumerate}
+\subsection{Answer}
+Recall that 
+\[\frac{\partial}{\partial z} f = \frac{1}{2} \left( \frac{\partial}{\partial x }  - i \frac{\partial}{\partial y} \right) f \quad\mbox{and}\quad \frac{\partial}{\partial \overline{z}} f = \frac{1}{2} \left( \frac{\partial}{\partial x }  + i \frac{\partial}{\partial y} \right) f .\]
+We may therefore compute
+\begin{enumerate}
+\item \begin{align*} \frac{\partial}{\partial z} (x^2 - y )& =  \frac{1}{2} \left( 2 x +i\right)  
+\end{align*}
+\item \begin{align*}  \frac{\partial}{\partial \overline{z}}(x + y^2)  &=  \frac{1}{2} \left( 1 + 2 y i  \right)
+\end{align*}
+\item \begin{align*}  
+\frac{\partial^4}{\partial z \partial \overline{z}^3} (x y ^2) &= \frac{\partial^3}{\partial z \partial \overline{z}^2} \frac{\partial}{\partial \overline{z}} (x y ^2) \\
+&= \frac{\partial^3}{\partial z \partial \overline{z}^2} \frac{1}{2} \left( y^2 + 2 xyi\right) \\
+&= \frac{\partial^2}{\partial z \partial \overline{z}}  \frac{\partial}{\partial \overline{z}} \frac{1}{2} y^2 +  xyi \\
+&= \frac{\partial^2}{\partial z \partial \overline{z}}  \frac{1}{2} \left( -x  + 4 y i\right) \\
+&= \frac{\partial}{\partial z }  \frac{\partial }{\partial \overline{z}}- \frac{1}{2} x  + 2 y i \\
+&= \frac{\partial}{\partial z }  \frac{1}{2} \left( -\frac{5}{2} \right) \\
+&=0
+\end{align*}
+Which should have been obvious, since our original polynomial was of degree 3.
+\item \begin{align*}\frac{\partial^2}{\partial \overline{z} \partial z}  ( \overline{z} z^2 - z^3 \overline{z} + 7 z ) &= \frac{\partial}{\partial \overline{z}}  2 \overline{z}  z - 3 z^2 \overline{z} + 7\\
+&= 2 z - 3 z^2
+\end{align*} 
+\end{enumerate}
+
+\section{Problem  36}
+\subsection{Question}
+Write
+\[ \frac{\partial}{\partial z} \quad\mbox{and}\quad \frac{\partial}{\partial \overline{z}}\]
+in polar coordinates.
+\subsection{Answer}
+We relate polar coordinates to rectangular by 
+\[x = r \cos \theta \quad y = r \sin \theta  \quad r = x^2 + y^2 \quad \theta = \tan^{-1} y/x.\]
+Therefore compute
+\[\frac{\partial r}{\partial x} = 2 x = 2 r  \cos \theta \quad\frac{\partial r}{\partial y} = 2 y = 2 r \sin \theta \]
+\[\frac{\partial \theta}{\partial x} = -\frac{y}{x^2 + y^2} = -\frac{ \sin \theta }{ r} \quad \frac{\partial \theta}{\partial y} = \frac{x}{ x^2 + y^2}  = \frac{\cos \theta}{r} .\]
+Now, recall that for $f = u +  i v $ we can write
+\[\frac{\partial}{\partial z} f = \frac{1}{2} \left( \frac{\partial u }{\partial x} + \frac{\partial v }{\partial y} \right) + \frac{i}{2} \left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}  \right) .\]
+Substituting
+\[\frac{\partial u}{ \partial x}= \frac{\partial u}{\partial r} \frac{\partial r}{\partial x}\quad\frac{\partial v}{ \partial y}= \frac{\partial v}{\partial r} \frac{\partial r}{\partial y}\quad\frac{\partial v}{ \partial x}= \frac{\partial v} {\partial \theta} \frac{\partial \theta}{\partial x}\quad\frac{\partial u}{ \partial y}= \frac{\partial u}{\partial \theta} \frac{\partial \theta}{\partial y}\]
+we get
+\[ \frac{1}{2} \left( \frac{\partial u }{\partial r} 2 r \cos \theta + \frac{\partial v }{\partial r} 2 r \sin \theta \right) + \frac{i}{2} \left( \frac{\partial v}{\partial \theta} \frac{-\sin \theta}{r} - \frac{\partial u}{\partial \theta}  \frac{\cos \theta}{r} \right) ,\]
+or equivalently
+\[(u \cos \theta + v \sin \theta)\left( r \frac{\partial}{\partial r} - \frac{i}{2r} \frac{\partial }{\partial \theta} \right).\]
+Similarly, we can write 
+\[\frac{\partial}{\partial \bar z} f = \frac{1}{2} \left( \frac{\partial u }{\partial x} - \frac{\partial v }{\partial y} \right) + \frac{i}{2} \left( \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y}  \right) \]
+as
+\[ \frac{1}{2} \left( \frac{\partial u }{\partial r} 2 r \cos \theta - \frac{\partial v }{\partial r} 2 r \sin \theta \right) + \frac{i}{2} \left( \frac{\partial v}{\partial \theta} \frac{-\sin \theta}{r} + \frac{\partial u}{\partial \theta}  \frac{\cos \theta}{r} \right) .\]
+
+\section{Problem  43}
+\subsection{Question}
+Prove that if $f$ is holomorphic on $U \subseteq \mathbb{C}$, then
+\[\triangle (|f|^2) =  4 \left| \frac{\partial f }{\partial z }\right|^2.\]
+\subsection{Answer}
+\begin{proof}
+Recall that $|f|^2 = f \bar f$. Since $f$ is holomorphic, $\frac{\partial}{\partial z} f = 0$, and $\frac{\partial}{\partial\bar z} \bar f = 0$.  Finally, since we can define 
+\[\triangle f = 4 \frac{\partial}{\partial z} \frac{\partial}{\partial \bar z} f \]
+we just compute
+\begin{align*}
+\triangle ( |f| ^2 ) &= 4 \frac{\partial}{\partial z} \frac{\partial}{\partial \bar z} |f|^2 \\ 
+&= 4 \frac{\partial}{\partial z} \frac{\partial}{\partial \bar z} f \bar{f}\\ 
+&= 4  \frac{\partial}{\partial z}  f  \frac{\partial \bar f}{ \partial \bar z} \\ 
+&=  4   \frac{\partial \bar f}{ \partial \bar z}  \frac{\partial f }{ \partial z}\\ 
+&= 4 \left| \frac{\partial f }{\partial z }\right|^2-
+\end{align*}
+which is the desired result.
+\end{proof}
+
+\section{Problem  44}
+\subsection{Question}
+Prove that if $f$ is holomorphic on $U \subseteq \mathbb{C}$ and $f$ is nonvanishing, then
+\[\triangle(|f|^p) = p^2 |f|^{p-2} \left| \frac{\partial f}{\partial z} \right|^2, \quad\mbox{any }p>0.\]
+\subsection{Answer}
+\begin{proof}
+Recall that $|f|^2 = f \bar f$. Thus, we have in general $|f|^p = (f \bar f) ^ {p/2} = f^{p/2} \bar{f}^{p/2}$. Since $f$ is holomorphic, $\frac{\partial}{\partial z} f = 0$, and $\frac{\partial}{\partial\bar z} \bar f = 0$.  Finally, since we can define 
+\[\triangle f = 4 \frac{\partial}{\partial z} \frac{\partial}{\partial \bar z} f \]
+we just compute
+\begin{align*}
+\triangle ( |f| ^p ) &= 4 \frac{\partial}{\partial z} \frac{\partial}{\partial \bar z} |f|^p \\ 
+&= 4 \frac{\partial}{\partial z} \frac{\partial}{\partial \bar z} f^{p/2} \bar{f}^{p/2} \\ 
+&= 2  p \frac{\partial}{\partial z}  f^{p/2} \bar{f}^{p/2 - 1} \frac{\partial \bar f}{ \partial \bar z} \\ 
+&=  p^2   f^{p/2 -1 } \bar{f}^{p/2 - 1} \frac{\partial \bar f}{ \partial \bar z}  \frac{\partial f }{ \partial z}\\ 
+&=  p^2   |f|^{p-2} \left|\frac{\partial f }{ \partial z}\right|^2
+\end{align*}
+which is the desired result.
+\end{proof}
+
+\section{Problem  45}
+\subsection{Question}
+Prove that if $f$ is harmonic and real-valued on $U \subseteq \mathbb{C}$ and if $f$ is nonvanishing, then
+\[\triangle(|f|^p) = p(p-1)|f|^{p-2}|\nabla f|^2, \quad\mbox{any }p \geq 1.\]
+\subsection{Answer}
+Just compute
+{\allowdisplaybreaks
+\begin{align*}
+\triangle(|f|^p)&= \frac{\partial}{\partial x^2} |f|^p + \frac{\partial}{\partial y^2} |f|^p\\
+&= \frac{\partial}{\partial x} \left( p |f|^{p-1} \frac{\partial f}{\partial x} \right) + \frac{\partial}{\partial y^2} |f|^p\\
+&= p |f|^{p-1} \frac{\partial^2 f}{\partial x^2 } + \left(\frac{\partial f}{\partial x}\right)^2p(p-1)|f|^{p-2}  + \frac{\partial}{\partial y^2} |f|^p\\
+&= p |f|^{p-1} \frac{\partial^2 f}{\partial x^2 } + \left(\frac{\partial f}{\partial x}\right)^2p(p-1)|f|^{p-2}  +  p |f|^{p-1} \frac{\partial^2 f}{\partial y^2 } + \left(\frac{\partial f}{\partial y}\right)^2p(p-1)|f|^{p-2} \\
+&= \left(\frac{\partial f}{\partial x}\right)^2p(p-1)|f|^{p-2}  + \left(\frac{\partial f}{\partial y}\right)^2p(p-1)|f|^{p-2} \\
+&= \left( \left(\frac{\partial f}{\partial x}\right)^2  + \left(\frac{\partial f}{\partial y}\right)^2 \right) p(p-1)|f|^{p-2} \\
+&=|\nabla{f}|^2 p(p-1)|f|^{p-2} \\
+\end{align*}}
+
+\section{Problem  47}
+\subsection{Question}
+Prove that if $f$ is $C^2$, holomorphic, and nonvanishing, then $\log|f|$ is harmonic.
+\subsection{Answer}
+\begin{proof}If we write $f = u + i v$ we have $\log |f| = (1/2) \log(u^2 + v^2)$. Thus, $\log |f| \frac{\partial}{\partial x} = (u \frac{\partial u }{\partial x} + v \frac{\partial v}{ \partial x} )/ (u^2 + v^2)$ and 
+\[\log|f| \frac{\partial}{\partial^2 x} \]
+\[= \frac{1}{\left(u^2 + v^2\right)^2} \left( \left( u \frac{\partial^2 u }{ \partial x^2}+ v \frac{\partial^2 v}{\partial x^2} + \left(\frac{\partial u }{\partial x}\right)^2  + \left(\frac{\partial v }{\partial x}\right)^2\right)\left(u^2+ v^2 \right) - 2 \left( u \frac{\partial u }{ \partial x} + v \frac{\partial v }{ \partial x}\right)^2 \right).\]
+Clearly then we have 
+\[\log|f| \frac{\partial}{\partial^2 y} \]
+\[= \frac{1}{\left(u^2 + v^2\right)^2} \left( \left( u \frac{\partial^2 u }{ \partial y^2}+ v \frac{\partial^2 v}{\partial y^2} + \left(\frac{\partial u }{\partial y}\right)^2  + \left(\frac{\partial v }{\partial y}\right)^2\right)\left(u^2+ v^2 \right) - 2 \left( u \frac{\partial u }{ \partial y} + v \frac{\partial v }{ \partial y}\right)^2 \right).\]
+If we sum these values, and use the Cauchy-Riemann equations to simplify we get
+\[\triangle (\log|f|) = \frac{1}{\left(u^2 + v^2\right)} \left( u  \left( \frac{\partial^2 u }{\partial x^2} + \frac{\partial ^2 u }{\partial y^2}\right) + v\left(\frac{\partial^2 v }{\partial x^2 }+ \frac{\partial^2 v }{ \partial y^2} \right) \right).\]
+However, $f$ is holomorphic, and therefore $u$ and $v$ are harmonic. Hence, as $f$ is nonvanishing, we have 0, and $\log|f|$ is harmonic, as desired. 
+\end{proof}
+\section{Problem  48}
+\subsection{Question}
+Give an explicit description of all harmonic polynomials of second degree. Can you do the same for the third degree?
+\subsection{Answer}
+Given an arbitrary second degree polynomial
+\[w_5 \bar z^2 + w_4 z^2 + w_3 \bar z z + w_2 \bar z +w_1 z +w_0,\]
+requiring that it be harmonic is equivalent to requiring that the Laplacian be zero, or 
+\[ \triangle f = 4 \frac{\partial}{\partial z} \frac{\partial }{\partial \bar z} f = 0 .\]
+Computing we have
+\begin{align*}
+4 \frac{\partial}{\partial z} \frac{\partial }{\partial \bar z} f &= 0 \Leftrightarrow \\
+ \frac{\partial}{\partial z} \frac{\partial }{\partial \bar z} f &= 0 \Leftrightarrow \\
+  \frac{\partial}{\partial z} \frac{\partial }{\partial \bar z} w_5 \bar z^2 + w_4 z^2 + w_3 \bar z z + w_2 \bar z +w_1 z +w_0 &= 0 \Leftrightarrow \\
+  \frac{\partial}{\partial z} 2 w_5 \bar z  + w_3 z + w_2   &= 0 \Leftrightarrow \\
+ w_3  &= 0 .\\
+\end{align*}
+Therefore, a degree two polynomial is harmonic if and only if it has no terms involving both $z$ and $\bar z$. A similar analysis reveals that the same condition holds true for degree three polynomials.
+
+\section{Problem  51}
+\subsection{Question}
+Let $(v_1,v_2)$ be a pair of harmonic functions on a disc $U \subseteq \mathbb{C}$. Suppose that
+\[\frac{\partial v_1}{\partial y} = \frac{\partial v_2}{\partial x} \quad \mbox{and} \quad \frac{\partial v_1}{\partial x} + \frac{\partial v_2}{\partial y} = 0.\]
+Prove that $\left<v_1, v_2\right>$ is the gradient (i.e., the vector $\left< \partial h/\partial x , \partial h/ \partial y\right>$) of a harmonic function $h$.
+\subsection{Answer}
+By Corollary 1.5.2 we can find a holomorphic function $F$ which has Re$F = v_1$, Im$F = v_2$. Then, by Theorem 1.5.3, we can find a holomorphic antiderivative of $F$. However, the components of this function are just the desired harmonic functions.
+
+\section{Problem  52}
+\subsection{Question}
+The function $f(z) =1 /z$ is holomorphic on $U = \{z \in \mathbb{C} \mid 1 < |z| <2 \}$. Prove that $f$ does not have a holomorphic antiderivative on $U$. [\emph{Hint:} If there were an antiderivative, then its imaginary part would differ from arg~$z$ by a constant.]
+\subsection{Answer}
+\begin{proof}
+Suppose towards a contradiction that such an antiderivative does exists. Suppose further that its imaginary part say, $g(z) =$arg$z+ \theta_0$ differs from $\theta$, by $\theta_0$. Now, consider this value at $\gamma(t) = 3/2e^{2 \pi i t }$. This restriction must be continuous. This is a contradiction though, as 
+\[g(\gamma(t)) = 2\pi t + \theta_0.\]
+Notice that $\gamma(0) =\gamma(1)$, but $g(\gamma(0)) = \theta_0 \neq 2\pi+ \theta_0 = g(\gamma(1))$.
+\end{proof}
+
+\end{document}

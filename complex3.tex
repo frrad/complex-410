@@ -1,0 +1,293 @@
+\documentclass[11pt]{article}
+
+
+
+
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}
+\pagestyle{fancyplain}
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 410-3: Complex Analysis}
+
+
+
+\title{Homework 3}
+\author{Frederick Robinson}
+\date{20 April 2011}
+\maketitle
+
+
+\section*{Chapter 3}
+
+\section{Problem 1}
+\subsection{Question}
+It was shown (Corollary 3.5.2) that if $f_j$ are holomorphic on an open set $U \subseteq \mathbb{C}$ and if $f_j \to f$ uniformly on compact subsets of $U$, then
+\[\frac{d}{dz} f_j \to \frac{d}{dz} f\]
+uniformly on compact subsets of $U$. Give an example to show that if the word ``holomorphic" is replaced by ``infinitely differentiable", then the result is false.
+\subsection{Answer}
+Consider the sequence of functions
+\[f_j = \frac{1}{j} \sin(j x).\]
+This sequence converges uniformly to 0 on $\mathbb{C} \setminus \{0\}$, and each member of the sequence has infinitely many derivatives. However, the derivatives are $f'_j=\cos {jx}$, and these do not converge except for $x = n \pi$.
+
+
+\section{Problem 4}
+\subsection{Question}
+Use Morera's theorem to give another proof of Theorem 3.5.1: If $\{ f_j\}$ is a sequence of holomorphic functions on a domain $U$ and if the sequence converges uniformly on compact subsets of $U$ to a limit function $f$, then $f$ is holomorphic on $U$.
+\subsection{Answer}
+\begin{proof}
+Let $\gamma:[0,1] \to U$ be a closed, piecewise $C^1$ curve, with $\gamma(1) = \gamma(0)$. Since each $\{f_j\}$ is holomorphic
+\[\oint_\gamma f_j(\zeta) d \zeta = 0.\]
+Moreover, since $\{f_j\}$ converges uniformly to $f$,
+\[ \oint_\gamma f = \oint_\gamma \lim_{j \to \infty} f_j = \lim_{j \to \infty} \oint_\gamma f_j= 0.\]
+Hence, by Morera's theorem, $f$ is holomorphic.
+\end{proof}
+
+\section{Problem 9}
+\subsection{Question}
+Let $\sum_{k=0}^\infty a_k x^k$ and $\sum_{k=0}^\infty b_k x^k$ be real power series which converge for $|x| <1$. Suppose that $\sum_{k=0}^ \infty a_k x^k = \sum_{k=0}^ \infty b_k x^k$ when $ x = 1/2, 1/3, 1/4, \dots$. Prove that $a_k = b_k$ for all $k$.
+\subsection{Answer}
+This follows from a Theorem (Rudin 8.5) which states:
+
+Suppose two power series converge in a segement $S = (-R,R)$ and  denote by $E$  the set of all $x \in S$ where they agree. If $E$ has a limit point in $S$, then the two power series are the same.
+
+\section{Problem 11b}
+\subsection{Question}
+Determine the disc of convergence for the series. Then determine at which points of the boundary of the disc of convergence the series converges.
+\[\sum_{k=2}^\infty k^{\log k} (z+1)^k\]
+\subsection{Answer}
+We employ the root test (Lemma 3.2.6). First compute
+\[\limsup_{k \to \infty} |k^{\log k}| ^{1/k} = \limsup_{k \to \infty} e^{(\log k)^2 /k} =1\]
+Therefore, the disc of convergence is 
+\[D(-1 ,1 )\]
+
+To analyze the behavior on the boundary, let $z = -1+e^{i \theta}$ be a generic point on the boundary. Now the series is
+\[\sum_{k=2}^\infty k^{\log k} e^{i k \theta} .\]
+This diverges for every choice of $\theta$ though, as $\lim_{k \to \infty} |k ^{\log k} e^{i k \theta}| = \infty$.
+
+
+\section{Problem 11f}
+\subsection{Question}
+Determine the disc of convergence for the series. Then determine at which points of the boundary of the disc of convergence the series converges.
+\[\sum_{k=2}^\infty \frac{k}{k^2+4}z^k\]
+(\emph{Hint}: Use summation by parts.)
+\subsection{Answer}
+Let's use the root test again. 
+\[\limsup_{k \to \infty} \left( \frac{k}{k^2+4} \right) ^{1/k} = 1.\]
+Therefore, the series converges on $D(0,1)$. By a theorem involving summation by parts (Rudin 3.44) the series also converges on the boundary, except perhaps at 1. Clearly it does not converge at 1, since the sum differs by  a constant from $\sum_{z=2}^\infty 1/z$ which diverges.
+
+\section{Problem 11g}
+\subsection{Question}
+Determine the disc of convergence for the series. Then determine at which points of the boundary of the disc of convergence the series converges.
+\[\sum_{k=0}^\infty ke^{-k} z^k\]
+\subsection{Answer}
+By the roots test, the disk of convergence is $D(0,e)$ by the root test, as
+\[ \limsup_{k \to \infty} k^{1/k}e^{-k/k} = \limsup_{k \to \infty} \frac{k^{1/k}}{e} = \frac{1}{e}.\]
+On the boundary, we have sums of the form
+\[\sum_{k=0}^\infty k e^{-k} (e e^{i \theta})^k = \sum_{k=0}^\infty k  ( e^{i \theta})^k\]
+which has divergent modulus, and therefore does not converge for any choice of $\theta$.
+
+\section{Problem 13}
+\subsection{Question}
+Let $f: (-1, 1) \to \mathbb{R}$ be $C^\infty$. Prove that $f$ is real analytic in some neighborhood of 0 if and only if there is a nonempty interval $(-\delta, \delta)$ and a constant $M > 0$ such that $|(d/dx)^k f(x)|\leq M^k \cdot k!$ for all $k \in \{1,2, \dots\}$ and all $x \in (-\delta, \delta)$
+\subsection{Answer}
+\begin{proof}
+Suppose  $(\Rightarrow)$ that there is such a $\delta, M$. Then, we write the absolute value of the Taylor series at a point $a \in (-\delta, \delta)$ as
+\[ \sum_{k=0}^\infty  \left|\frac{1}{k!} \left( \frac{d}{dx}\right)^k f(a) (x - a)^k\right| \leq \sum_{k=0}^\infty M^k  (x - a)^k .\]
+Since we can choose $x$ to be within $1/2M$ of $a$, this converges on a neighborhood of $a$. Thus, $f$ is analytic on $(-\delta,\delta)$ since it has an absolutely convergent (and therefore convergent) series representation on some neighborhood of any point in this interval.
+
+Conversely ($\Leftarrow$) suppose that $f$ is real analytic on the interval $(-\delta, \delta)$. Then there is a neighborhood of any point in the interval on which the Taylor series converges absolutely. Suppose towards a contradiction that there is no $M$ such that
+\[|(d/dx)^k f(x)|\leq M^k \cdot k!\mbox{ for all }k \in \{1,2, \dots\}\mbox{ and all }x \in (-\delta, \delta).\]
+Then, for a fixed choice of $M$ all but finitely many choices of $k, x$ have
+\[|(d/dx)^k f(x)|> M^k \cdot k!.\]
+Hence, the Taylor series 
+\[ \sum_{k=0}^\infty  \left|\frac{1}{k!} \left( \frac{d}{dx}\right)^k f(a) \epsilon^k\right|\]
+diverges outside a neighborhood of fixed size $<\epsilon$ if we choose $M = 1/\epsilon$. This is a contradiction though, as $\epsilon$ may be chosen to be arbitrarily small.
+\end{proof}
+
+
+\section{Problem 23}
+\subsection{Question}
+TRUE or FALSE: Let $f$ be holomorphic on $D(0,1)$ and assume that $f^2$ is a holomorphic polynomial on $D(0,1)$. Then $f$ is also a holomorphic polynomial on $D(0,1)$.
+\subsection{Answer}
+FALSE
+
+Let $f(z) = \sqrt{z+2}$. 
+
+\section{Problem 24}
+\subsection{Question}
+TRUE or FALSE: Let $a_j >0, j=1,2,\dots.$ If $\sum a_j z^j$ is convergent on $D(0,r)$ and if $\epsilon >0$ is sufficiently small, then $\sum(a_j+ \epsilon) z^j$ is convergent on $D(0,r')$ for some $0<r'<r$.
+\subsection{Answer}
+TRUE
+
+\begin{proof}Clearly
+\[\sum(a_j + \epsilon) z^j = \sum( a_j z^j + \epsilon z^j) =\sum a_j z^j +\epsilon \sum  z^j \]
+converges  on $D(0,r)$ if and only if $\sum \epsilon z^j$ does. However, this is just a geometric series, and is clear for sufficiently small $z$.
+\end{proof}
+
+\section{Problem 26}
+\subsection{Question}
+The functions $f_k (x) = \sin k x $ are $C^\infty$ and bounded by 1 on the interval $[-1,1]$, yet their derivatives at 0 are unbounded.
+
+Contrast this situation with the functions $f_k(z) = \sin k z $ on the unit disc.The Cauchy estimates provide bounds for $(\partial/\partial z) f_k(0)$. Why are these two examples not contradictory?
+\subsection{Answer}
+This is not contradictory, since the complex derivative is not completely determined by the derivative in the real direction. It has also a contribution from the derivative in the imaginary direction. In this instance the imaginary contribution must counteract the real contribution, leading to a bound on the total in general.
+
+\section{Problem 28}
+\subsection{Question}
+Let $U \subseteq \mathbb{C}$ be an open set. Let $f: U \to \mathbb{C}$ be holomorphic and bounded. Let $P \in U$. Prove that
+\[\left| \frac{\partial^k f}{\partial z^k } (P) \right| \leq \frac{k!}{r^k} \sup_U|f|,\]
+where $r$ is the distance of $P$ to $\mathbb{C} \setminus U$.
+\subsection{Answer}
+\begin{proof}
+By Cauchy Estimates
+\[\left| \frac{\partial^k f}{\partial z^k } (P) \right| \leq \frac{k!}{r'^k} \sup_U|f|,\]
+for all $0 < r' <r$ since $\sup_U |f| \geq \sup_{\overline{D}(P,r')}|f|$ for all such $r'$. Now just observe that by continuity of $1/x$ away from 0 the inequality must also hold in the limit $r' \to r$. 
+
+(Suppose not, then there is some $s < r$ such that 
+\[ \frac{k!}{r^k} \sup_U|f| < \frac{k!}{s^k} \sup_U|f| < \left| \frac{\partial^k f}{\partial z^k } (P) \right|  \]
+a contradiction) 
+\end{proof}
+
+
+\section{Problem 30}
+\subsection{Question}
+Let $f$ be an entire function and $P \in \mathbb{C}$. Prove that there is a constant $C$, not depending on $k$ such that
+\[\left| \left( \frac{\partial}{\partial z} \right) ^k f(P) \right| \leq C \cdot k!.\]
+Can you improve this estimate? Is there necessarily a polynomial $p(k)$ such that
+\[\left| \left( \frac{\partial}{\partial z} \right) ^k f(P) \right| \leq |p(k)|\quad ?\]
+\subsection{Answer}
+For the first part, we can fix $C  = \sup_{z \in \overline{D}(P,1)}|f(z)|$, then taking the Cauchy estimate, for radius 1 yields
+\[\left| \frac{\partial^k f}{\partial z^k}(P) \right| \leq C k!\]
+as desired.
+
+This estimate cannot be improved. Consider the power series
+\[ f(z) = \sum_{k=0}^\infty \frac{2^k}{k!} z^k\]
+the function is analytic, by construction, however it has $k$th derivative $2^k$, and therefore the derivatives are not bounded above by any polynomial.
+
+
+\section{Problem 32}
+\subsection{Question}
+Suppose that $f$ is bounded and holomorphic on $\mathbb{C} \setminus \{ 0\}$. Prove that $f$ is constant. [\emph{Hint:} Consider the function $g(z) =z^2 \cdot f(z)$ and endeavor to apply Theorem 3.4.4.]
+\subsection{Answer}
+\begin{proof}
+$f$ being holomorphic, bounded the limit $\lim_{z \to 0}$ is well defined, finite. Then, the function
+\[g(z) = \left\{ \begin{array}{ll} f(z) & z \neq 0 \\ \lim_{z \to 0} f(z) & z=0\end{array}\right.\]
+is holomorphic, bounded. Hence, we have the desired result by Louisville's Theorem.\end{proof}
+
+\section{Problem 33}
+\subsection{Question}
+\begin{enumerate}
+\item Show that if $f: D(0,r) \to \mathbb{C}$ is holomorphic, then
+\[|f(0)| \leq \frac{1}{\sqrt \pi r}  \left( \int_{D(0,r)} |f(x,y)|^2 dx dy\right) ^{1/2}.\]
+[\emph{Hint:} The function $f^2$ is holomorphic too. Use the Cauchy integral formula to obtain 
+\[\frac{1}{2 \pi} \int_0^{2 \pi} f^2 (se^{i \theta})d\theta = f^2 (0)\]
+for $0<s<r$. Multiply both sides by a real parameter $s$ and integrate in $s$ from 0 to $r$.]
+\item Let $U \subseteq \mathbb{C}$ be an open set and let $k$ be a compact subset of $U$. Show that there is a constant $C$ (depending on $U$ and $K$) such that if $f$ is holomorphic on $U$, then
+\[\sup_K|f| \leq C \cdot \left( \int_U |f(x,y)|^2 dxdy\right)^{1/2}.\]
+\end{enumerate}
+\subsection{Answer}
+\begin{enumerate}
+\item By the CIF with $z = s e^{i \theta}$, $0< s  < r$ we have
+\[f^2(0) = \frac{1}{2 \pi i } \oint_\partial \frac{f^2(\zeta)}{\zeta} d \zeta  =\frac{1}{2 \pi} \int_0^{2 \pi} f^2 ( s e^{i \theta}) d \theta\]
+
+Hence,
+\[\int_0^r sf^2(0) ds = \int_0^r \frac{s}{2 \pi} \int_0^{2\pi} f^2 (se^{i \theta}) d\theta ds\]
+However, as
+\[\int_0^1 s f^2(0) ds = \frac{r^2}{2} f^2(0)\]
+and
+\[\int_0^1 \frac{s}{2 \pi} \int_0^{2\pi} f^2(se)^{i \theta} d\theta ds = \frac{1}{2 \pi} \oint_{D(0,r)} f^2 \]
+we have
+\[f^2(0) = \frac{1}{\pi r^2 } \oint_{D0,r)} f^2 (x,y) dx dy \Rightarrow |f(0)| \leq \frac{1}{r \sqrt \pi} \left( \oint_{D(0,r)} |f(x,y)|^2 dxdy \right) ^{1/2}\]
+as desired.
+\item Clearly 
+\[  \left( \int_{D} |f(x,y)|^2 dxdy\right)^{1/2}  \leq  \left( \int_U |f(x,y)|^2 dxdy\right)^{1/2} \]
+for any disk $D \subseteq U$. Now for any point $x \in K$, there is a disk of maximum radius  $r_x$ which is $U$. The infimum of these $r_x$ is positive, since $U$ is open, and $K$ is compact. Denote $C = 1/(\sqrt \pi \inf_x r_x)$. This value of $C$  gives us the claim.
+\end{enumerate}
+
+\section{Problem 37}
+\subsection{Question}
+Let $\{p_j\}$ be holomorphic polynomials, and assume that the degree of $p_j$ does not exceed $N$, all $j$ and some fixed $N$. If $\{p_j\}$ converges uniformly on compact sets, prove that the limit function is a holomorphic polynomial of degree not exceeding $N$.
+\subsection{Answer}
+\begin{proof}
+Repeated application of Corollary 3.5.2 implies that the limit $f$ has $N$th derivative 0 on compact sets. Therefore, $f$ is a polynomial on compact sets, and by Theorem 3.5.1 everywhere.
+\end{proof}
+
+\section{Problem 39}
+\subsection{Question}
+Let $\varphi: D(0,1) \to D(0,1)$ be given by $\varphi(z) = z + a_2 z^2 + \cdots .$ Define
+\begin{align*}
+\varphi_1(z) &= \varphi(z),\\
+\varphi_2(z) &= \varphi \circ \varphi(z),\\
+\vdots \quad  &\quad \quad \quad\vdots \\
+\varphi_j(z) &= \varphi \circ \varphi_{j-1} (z),
+\end{align*}
+and so forth. Suppose that $\{\varphi_j\}$ converges uniformly on compact sets. What can you say about $\varphi$?
+\subsection{Answer}
+If $\{ \varphi_j \}$ converges uniformly it is to the identity function. Assume that $f$ is the limit, then given $\epsilon >0$ there is $N$ such that $n> N \Rightarrow |\varphi_n - f | < \epsilon$ therefore, $\varphi_n(\varphi_n) = \varphi_{2n}$ has $|\varphi_{2n} - f| < \epsilon$ as well. However each $\varphi_i$ is continuous and therefore, $f \circ f = f$ and clearly $f(z) = z$.
+
+Now it's easy to see that $\varphi(z) =z$ as well. For assume not. Then, $f(z) = f(\varphi(z))$ for all $z$.
+
+
+\section{Problem 42}
+\subsection{Question}
+Let $f$ be holomorphic on a neighborhood of $\overline{D}(P,r)$. Suppose that $f$ is not identically zero. Prove that $f$ has at most finitely many zeros in $D(P,r)$.
+\subsection{Answer}
+\begin{proof}Assume that there are infinitely many zeroes. Then, there is an accumulation point, and by Corollary 3.6.3, $f$ is identically zero, a contradiction.\end{proof}
+
+\section{Problem  *45}
+\subsection{Question}
+Suppose that $f$ is holomorphic on all of $\mathbb{C}$ and that
+\[\lim_{n \to \infty} \left( \frac{\partial}{\partial z} \right) ^n f(z)\]
+exists, uniformly on compact sets, and that this limit is not identically zero. Then the limit function $F$ must be a very particular kind of entire function. Can you say what kind? [\emph{Hint:} If $F$ is the limit function, then $F$ is holomorphic. How is $F'$ related to $F$?]
+\subsection{Answer}
+Clearly $F' = F$. Furthermore, since $F$ is analytic, we can examine its power series. In particular
+\[\sum_{k=0}^\infty a_k x^k = \sum_{k=0}^\infty (k+1) a_{k+1} x^k.\]
+Therefore, $a_k = (k+1)a_{k+1}$, and the power series is
+\[a_0 \sum_{k=0}^\infty \frac{1}{k!} = a_0 e^z.\]
+
+\section{Problem *47}
+\subsection{Question}
+This exercise is for those who know some functional analysis. Let $U \subseteq \mathbb{C}$ be a bounded open set. Let 
+\[X = \{ f \in C(\overline{U} ) \mid f \mbox{ is holomorphic on }U\}.\]
+If $f \in X$, then define 
+\[||f|| = \sup_{\overline{U}}|f|.\]
+Prove that $x$ equipped with the norm $||\ ||$ is a Banach space.  Prove that for any fixed $P \subset U$ and any $k \in \{0,1,2,\dots\}$ it holds that the map 
+\[X \ni f \mapsto \frac{\partial^k f}{\partial z^k}(P)\]
+is a bounded linear functional on $X$.
+\subsection{Answer}
+We must show that $X$ is a complete normed vector space. It's easy to see that the only vector with norm 0 is the constant function $f(z)=0$, and any other function has norm $> 0$. Also, scalar multiplication, and the triangle inequality follow from the same properties on $\mathbb{C}$.
+
+$X$ is complete
+\begin{proof}
+Assume that $\{f_n\}$ is a sequence of functions in $X$ such that for any $\epsilon >0$ there exists $N$ such that $||f_m - f_n||< \epsilon$ for all $n,m > N$.
+
+This implies in particular that $\{f_n\}$ is a uniformly convergent sequence of holomorphic functions. Thus, the sequence converges to another function in $X$, by Theorem 3.5.1.
+\end{proof}
+
+That the derivative at a point is a linear functional is easy to check. In particular the $k$th derivative of $\alpha f$ at $p$ is $\alpha$ times the $k$th derivative at that point by the product rule. Furthermore, the $k$th derivative of the sum of two functions is the sum of the $k$th derivatives of the functions. 
+
+Boundedness of the functional follows from Cauchy estimates, together with the fact that members of $X$ are bounded in absolute value. 
+\[\left| \frac{\partial^k f}{\partial z^k} (P) \right| \leq M k! / r^k\]
+for $M = \sup_{\overline{U}} |f|$.
+
+\section{Problem *61}
+\subsection{Question}
+What can you say about the zero sets of real analytic functions on $\mathbb{R}^2$? What topological properties do they have? Can they have interior? [\emph{Hint:} Here, by ``real analytic function" of the two real variables $x$ and $y$, we mean a function that can be locally represented as a convergent power series in $x$ and $y$. How does this differ from the power series representation of a holomorphic function?]
+\subsection{Answer}
+The zero sets of a real analytic function on $\mathbb{R}^2$ have no interior. Suppose that they did, then in particular, there is a restriction to a function $f_x$ on $\mathbb{R}$ which has a locally convergent power series representation by assumption, but contains an interval on which the function is zero. This is a contradiction though, because if the function is analytic, then its taylor series must converge. Since $f_x$ is analytic, and therefore continuous, the zero set is closed. Looking at a point on the boundary it is clear that $f_x$ doesn't have a convergent power series representation. 
+
+\end{document}

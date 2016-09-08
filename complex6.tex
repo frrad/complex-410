@@ -1,0 +1,183 @@
+\documentclass[11pt]{article}
+
+
+
+
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}
+\pagestyle{fancyplain}
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 410-3: Complex Analysis}
+
+
+
+\title{Homework 5}
+\author{Frederick Robinson}
+\date{25 May 2011}
+\maketitle
+
+
+\section*{Chapter 6}
+
+\section{Problem 1}
+\subsection{Question}
+Does there exist  a holomorphic mapping of the disc \emph{onto} $\mathbb{C}$? [\emph{Hint: } The holomorphic mapping $z \mapsto (z-i)^2$ takes the upper half plane onto $\mathbb{C}$]
+\subsection{Answer}
+Yes, if we compose the Cayley transform, which takes the disk to the upper half plane with the map given in the hint, we have a map with the desired properties. In particular, consider the map
+\[z \mapsto -\left( \frac{2z}{z-1} \right)^2.\]
+
+
+\section{Problem 2}
+\subsection{Question}
+Prove that if $f$ is entire and one-to-one, then $f$ must be linear. [\emph{Hint: } Use the fact that $f$ is one-to-one to analyze the possibilities for the singularity at $\infty$.]
+\subsection{Answer}
+As in the proof of Lemma 6.1.3 we observe that the function $g(z) = 1/f(1/z)$ must have $g'(0)$ by injectivity of $f$. Hence, $g$ is bounded below in modulus by some linear function, on some neighborhood of 0. Therefore, pulling back to $f$, we have that $f$ is bounded above by a linear function on some neighborhood of infinity.
+
+Now the fact that $f$ is entire allows us to apply Theorem 3.4.4, and conclude that $f$ is a polynomial of degree at most 1, as desired.
+
+\section{Problem 4}
+\subsection{Question}
+Refer to Exercise 3 for terminology. Let $\Omega_1$ and $\Omega_2$ be domains in $\mathbb{C}$. Suppose that $\Phi: \Omega_1 \to \Omega_2$ is a conformal map. Using $\Phi$, exhibit a relation between Aut($\Omega_1$) and Aut$(\Omega_2)$.
+\subsection{Answer}
+Aut$(\Omega_1) \cong$ Aut$(\Omega_2)$ via the group homomorphism $\varphi: $ Aut$(\Omega_1) \to $ Aut$(\Omega_2)$ given by  $f \mapsto  \Phi \circ f \circ \Phi^{-1}$.
+
+\begin{proof}
+This is a group homomorphism, as $\varphi(f \cdot g) = \Phi \circ f \circ g \circ \Phi^{-1} =  \Phi \circ f \circ \Phi^{-1} \circ \Phi \circ g \circ \Phi^{-1} = \varphi(f) \cdot \varphi(g)$.
+
+Let $f, g \in$ Aut$(\Omega_1)$ such that $\varphi(f) = \varphi(g)$. Thus, $\Phi \circ f \circ \Phi^{-1} = \Phi \circ g \circ \Phi^{-1}$, and as $\Phi$ (and therefore $\Phi^{-1}$) is conformal $f=g$. Hence $\varphi$ is injective.
+
+Let $f \in $Aut $\Omega_2$ be conformal. Then, $\Phi^{-1} \circ g \circ \Phi \in $ Aut$(\Omega_1)$ is conformal. Since conformality is preserved by composition, inverse. So, $\varphi$ is surjective and we have the desired result.
+\end{proof}
+
+\section{Problem 6}
+\subsection{Question}
+Let $\Omega \setminus \{ z \mid |z| \leq 1\}$. Determine all biholomorphic self-maps of $\Omega$. [\emph{Hint: } The domain $\Omega$ is conformally equivalent to $\{z \mid 0 < |z| <1\}$. ]
+\subsection{Answer}
+
+Since the domain is conformally equivalent to $0 < |z| <1$ it suffices to determine all biholomorphic self maps on this domain, as we may transfer them to the original domain by a conformal map, as proven in the previous exercise. 
+
+All biholomorphic self-maps of the punctured disk are rotations though. Any holomorphic function the punctured disk must be given by a function with a Laurent series. However, if there is a pole in this function, then the image on the punctured disk must contain points arbitrarily far from the origin. Thus, for any biholomorphic self-map of the punctured disk, there is a holomorphic function on the un-punctured disk, fixing the origin which restricts to it. Thus, by lemma 6.2.1 our map must be a rotation.
+
+\section{Problem 8}
+\subsection{Question}
+Let $U = \{z \in \mathbb{C} \mid \mbox{Im } z >0\}$. Calculate all the biholomorphic self-maps of $U$.
+\subsection{Answer}
+The upper half plane maps conformally to the unit disk via, for instance the map $\varphi : \mathbb{H} \to D$ given by
+\[ \varphi(z) = \frac{i z + 1 }{ z + i} \]
+So, using the construction from exercise 4, we can transfer the automorphisms of the disk to those of the upper half plane. The automorphisms of the disk are given by the M\"{o}bius transformations together with a rotation (see Theorem 6.2.3), that is functions of the form
+\[ f(z) = \omega \cdot \phi_a(z)\]
+for $|\omega| = 1, |a| <1$
+where 
+\[\phi_a(z) = \frac{z-a}{1-\overline{a} z}\]
+is a M\"{o}bius transformation.
+
+
+All conformal automorphism of $\mathbb{H}$ are given by compositions of the form $\varphi ^{-1} \circ  f \circ \varphi$.
+
+
+\section{Problem 14}
+\subsection{Question}
+A holomorphic function $f : U \to \mathbb{C}$ is called a  ``branch of log $z$" on $U$ if $e ^{f(z)} \equiv z$ for all $z \in U$. Prove that
+\begin{enumerate}
+\item there is a branch of log $z$ defined on any open disc not containing the origin;
+\item there is a branch of log $z$ defined on $\mathbb{C} \setminus ( \{0\} \cup$ (an open half line emanating from 0));
+\item there is no branch of log $z$ defined on any open set $U$ containing $\{z \mid |z| =1 \}$;
+\item if there is a continuous function $g : U \to \mathbb{C} $ such that $e^{g(z)} \equiv z$ for $z \in U$, then $g$ is necessarily holomorphic and hence a branch of log $z$ on $U$ in the sense already defined.
+\end{enumerate}
+\subsection{Answer}
+\begin{enumerate}
+\item This follows from 6.6.4 (The holomorphic logarithm lemma) which states:
+
+Let $U$ be a holomorphically simply connected open set. If $f: U \to \mathbb{C}$ is holomorphic and nowhere zero on $U$, then there exists a holomorphic function $h$ on $U$ such that
+\[ e^h \equiv f \mbox{ on } U.\]
+
+If we take $f(z) = z$ the identity function, then the $h$ given by the lemma satisfies the required condition. 
+\item 6.6.4 still applies
+\item
+By the next part, a branch of log is also a branch of log in the sense we are used to. Then, we have shown already that it cannot be defined on this domain.
+\item 
+\[\frac{\partial}{\partial \overline{z}} z  = \frac{\partial}{\partial \overline{z}}  e^{f(z)} = e^{f(z)}  \frac{\partial}{\partial \overline{z}} f(z) = 0.\]
+But this is true if and only if 
+\[\frac{\partial}{\partial \overline{z}} f(z) = 0.\]
+
+
+\end{enumerate}
+
+\section{Problem 17}
+\subsection{Question}
+Let $\Omega$ be a bounded domain and let $\phi$ be a conformal mapping of $\Omega$ to itself. Let $P \in \Omega$ and suppose both that $\phi(P) =P$ and $\phi'(P)=1$. Prove that $\phi$ must be the identity. [\emph{Hint: } Write the power series 
+\[\phi(z) = P+(z-P)+ \mbox{higher order terms}\]
+and consider $\phi \circ \phi, \phi \circ \phi \circ \phi, \dots$. Apply Cauchy estimates to the first nonzero coefficient of the power series for $\phi$ after the term $1 \cdot (z- P)$. Obtain a contradiction to the existence of this term.]
+\subsection{Answer}
+Assume WLOG that $P=0$ and denote $\underbrace{ \phi \circ \cdots \circ \phi}_\mathrm{n times} =\phi_n$. Then, 
+\[\phi_n(z) = z + n  a z^k  + \mbox{ higher order terms}\]
+where $k$ is the first nonzero power in the power series for $\phi$, and $a$ is the first nonzero term. This tends to infinity as $k$ does though. This is a contradiction since $\Omega$ is bounded, and $\phi$ (and therefore $\phi_n$) sends $\Omega $ to itself.
+
+\section{Problem 20}
+\subsection{Question}
+Let $\{f_\alpha\}$ be a normal family of holomorphic functions on a domain $U$. Prove that $\{f_\alpha' \}$ is a normal family.
+\subsection{Answer}
+We must show that every sequence  in $f'$ has a subsequence that converges uniformly on compact subsets of the domain. Just fix the same convergent subsequence that is guaranteed by the normalcy of $f$. Then,  we are done, by corollary 3.5.2.
+\section{Problem 21}
+\subsection{Question}
+Let $a$ be a complex number of modulus less than one and let 
+\[ L(z) = \frac{z-a}{1-\overline{a} z} .\]
+Define $L_1 = L$ and, for $j \geq 1$, $L _{j+1} = L \circ L_j$.
+
+Prove that lim $ L_j$ exists, uniformly on compact subsets of $D(0,1)$, and determine what holomorphic function it is.
+\subsection{Answer}
+We'll solve this problem in terms of a (conformally equivalent) function on a different domain which is easier to handle.Let $b = a/ |a|$, and $\phi(z) = (z-b)  / (z+b)$, and $f(z) = \phi \circ L \circ \phi^{-1}$. Computing, we see that $L(b) = b = -b$. Thus, $f(0)=0, f(\infty)=\infty$, and consequently $f(z)=\omega z$ (a complex linear equation). The coefficent $\omega$ is (by a simple computation) $(-1-|a|)/(-1+|a|)$. Hence, $|\omega| > 1$, and $L_n = \phi^{-1} \circ \omega^n \circ \phi$, and $L_n(\infty) \to 1$. Montel's theorem gives us a convergent subsequence on compact sets, and thus the whole sequence converges as well.
+
+\section{Problem 24}
+\subsection{Question}
+Let $\Omega \subseteq \mathbb{C}$ be a bounded domain and let $\{f_j\}$ be a sequence of holomorphic functions on $\Omega$. Assume that
+\[\int_\Omega |f_j (z)|^2 dx dy < C < \infty, \]
+where $C$ does not depend on $j$. Prove that $\{f_j\}$ is a normal family. [\emph{Hint: } Use the Cauchy inequalities to show that $|f(z)|^2$ does not exceed the mean value of $|f|^2$ on a small disc centered at $z$ and contained in $U$--see Exercise 8 in Chapter 4. Then deduce that the $f_j$ are locally uniformly bounded.]
+\subsection{Answer}
+
+I will show that $f$ is locally uniformly bounded, as suggested in the hint, then the result will follow by Montel's Theorem. 
+
+We already did this though, in exercise 4.8, where we showed that 
+\[|F(Q)|^2 \leq \frac{1}{\pi \epsilon^2} \int_{D(Q,\epsilon)}|F(z)|^2 dxdy\]
+
+
+
+\section{Problem 35}
+\subsection{Question}
+\begin{enumerate}
+\item \label{previous} Prove: If $P(x)$ is a polynomial of degree $k$ then for all but a finite number of values $\alpha \in \mathbb{C}$, the equation $P(z) = \alpha$ has exactly $k$ distinct solutions. In particular, if $P: \mathbb{C} \to \mathbb{C}$ is one-to-one, then the degree of $P$ is 1.
+\item Use part \ref{previous} to derive
+
+\emph{Theorem 6.1.1}
+
+A function $F: \mathbb{C} \to \mathbb{C}$ is a conformal mapping if and only if there are complex numbers $a,b$ with $a \neq 0$ such that 
+\[f(z) = az+ b, z \in \mathbb{C}.\]
+ from \emph{Theorem 4.7.5}.
+ 
+ Suppose that $f: \mathbb{C} \to \mathbb{C}$ is an entire function. Then $\lim_{|z| \to +\infty}|f(z)| = + \infty$ (i.e., $f$ has a pole at $\infty$) if and only if $f$ is a nonconstant polynomial. The function $f$ has a removable singularity at $\infty$ if and only if $f$ is a constant.
+\end{enumerate}
+\subsection{Answer}
+\begin{enumerate}
+\item Recall that a polynomial $P(z) - \alpha$ has a multiple zero if and only if  there is some $z$ for which $\frac{\partial}{\partial z} (P(z) -\alpha) = P'(z) = 0 = P(z) - \alpha$. If we fix some $P(z)$, the points where the derivative of $P(z) - \alpha$ is zero are fixed and finite, say $a_1, \dots, a_n$. Then, the value $P(a_i)$ is fixed, and there is precisely one $\alpha = P(a_i)$ such that $P(a_i) - \alpha=0$. There are therefore at most $n$ values of $\alpha$ for which $P(z) - \alpha$ has a multiple root.
+\item By Lemma 6.1.2, a conformal $f$ satisfies the assumptions of Theorem 4.7.5. Thus, it is a nonconstant polynomial.  By part 1, it must be linear, since it is injective.
+
+Linear functions are clearly conformal. 
+
+So we have the desired result.
+\end{enumerate}
+
+\end{document}

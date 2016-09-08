@@ -1,0 +1,146 @@
+\documentclass[11pt]{article}
+
+
+
+
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}
+\pagestyle{fancyplain}
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 410-3: Complex Analysis}
+
+
+
+\title{Homework 2}
+\author{Frederick Robinson}
+\date{11 April 2011}
+\maketitle
+
+\section*{Chapter 2}
+
+
+\section{Problem  3}
+\subsection{Question}
+Let $U \subseteq \mathbb{C} $ be an open disc with center 0. Let $f$ be holomorphic on $U$. If $z \in U$, then define $\gamma_z$ to be the path
+\[\gamma_z(t) = tz, \quad 0 \leq t \leq 1.\]
+Define
+\[F(z) = \oint_{\gamma_z} f(\zeta) d\zeta. \]
+Prove that $F$ is a holomorphic antiderivative for $f$.
+\subsection{Answer}
+\begin{proof}
+We proved in Theorem 2.3.2 that the function $F'$ acquired by integrating
+\[F' = \int_0^{\Re(z)} \Re{f} + \int_0^{\Im(z)}  \Im(f) \]
+is has the desired properties. It therefore suffices to show that $F' = F$. This is just a straightforward application of the Cauchy Integral Theorem though. 
+
+Observe that
+\[F' = \int_{\gamma'} f\]
+where $\gamma'$ is the union of the line segments from 0 to $\Re z$ and $\Re z$ to $\Im z$.  If we denote by $\gamma' - \gamma$ the path acquired by traveling along $\gamma'$, then backwards along $\gamma$, the Cauchy Integral Theorem gives us
+\[0 = \oint_{\gamma' - \gamma} f(\zeta) d \zeta = \oint_{\gamma'} f(\zeta) d \zeta - \oint_\gamma f(\zeta) d \zeta  = F' - F\]
+which is what we wanted to show.
+\end{proof}
+
+\section{Problem  4a}
+\subsection{Question}
+Compute
+\[\oint_\gamma \frac{1}{z} dz\]
+where $\gamma$ is the unit circle (center 0) with counterclockwise orientation.
+\subsection{Answer}
+The Cauchy integral formula with $z =0, f(z) = 1$ is
+\[1 = \frac{1}{2 \pi i } \oint_\gamma \frac{1}{\zeta} d \zeta.\]
+Therefore the desired integral is just $2 \pi i$.
+
+\section{Problem  4c}
+\subsection{Question}
+Compute
+\[\oint_\gamma \frac{z}{8+z^2} dz\]
+where $\gamma$ is the triangle with vertices $1,i,-i$ and $\gamma$ is equipped with counterclockwise orientation.
+\subsection{Answer}
+The zeroes of the denominator lie outside the triangle. The function is therefore holomorphic on the interior, and the integral evaluates to
+\[\oint_\gamma \frac{z}{8+z^2} dz = 0.\]
+
+
+\section{Problem  5}
+\subsection{Question}
+Evaluate 
+\[\oint_\gamma z^j dz,\]
+for every integer value of $j$, where $\gamma$ is a circle with counterclockwise orientation and whose interior contains 0.
+\subsection{Answer}
+In the case of $j=-1$ we solved this in exercise 4a. Assuming $j \neq -1$, the function is holomorphic on $\mathbb{C} \setminus \{0\}$. Hence,
+\[\oint_\gamma z^j dz = \left\{ \begin{array}{ll} 2 \pi i & j=-1\\ 0 &\mbox{otherwise} \end{array}\right..\]
+
+
+\section{Problem  18b}
+\subsection{Question}
+Compute
+\[\oint_\gamma \frac{\zeta}{(\zeta+4)(\zeta-1+i)} d \zeta\]
+where $\gamma$ describes the circle of radius 1 with center 0 and counterclockwise orientation.
+\subsection{Answer}
+As the function is  holomorphic on the interior of the curve we just have
+\[\oint_\gamma \frac{\zeta}{(\zeta+4)(\zeta-1+i)} d \zeta = 0\]
+
+\section{Problem  18d}
+\subsection{Question}
+Compute 
+\[\oint_\gamma \zeta(\zeta+4) d\zeta\]
+where $\gamma$ is the circle of radius 2 and center 0 with clockwise orientation.
+\subsection{Answer}
+As $\zeta^2 + 4 \zeta$ is a polynomial, it's holomorphic. Hence, by the Cauchy Integral Theorem
+\[\oint_\gamma \zeta(\zeta+4) d\zeta = 0.\]
+
+
+\section{Problem  18e}
+\subsection{Question}
+Compute
+\[\oint_\gamma \overline{\zeta} d\zeta\]
+where $\gamma$ is the circle of radius 1 and center 0 with counterclockwise orientation.
+\subsection{Answer}
+We can compute the integral as
+\begin{align*}\oint_\gamma \overline{\zeta} d\zeta &= \oint_\gamma \Re \overline{\zeta} d\zeta + i \oint_\gamma \Im \overline{\zeta} d\zeta\\
+&=  \oint_\gamma \Re \zeta d\zeta - i \oint_\gamma \Im \zeta d\zeta.
+\end{align*}
+However since the function $f(z) = z $ is holomorphic, we have $0-0=0$.
+\section{Problem  28a}
+\subsection{Question}
+Compute explicitly the integrals
+\[\oint_{\partial D(8i,2)} z^3 dz,\]
+\[\oint_{\partial D(6+i,3)} (\overline{z} - i ) ^2 dz.\]
+\subsection{Answer}
+\begin{align*}
+\oint_{\partial D(8i,2)} z^3 dz &= \int_0^1 (8 i + 2 e^{2 \pi i t })^3 2e^{2 \pi i (t+ 1/4 )} dt\\
+&=  \int_0^1 -512 i e^{2 i \pi  t}-384 e^{4 i \pi  t}+96 i e^{6 i \pi  t}+8 e^{8 i \pi  t} dt\\
+&=0
+\end{align*}
+For the second computation we have
+\begin{align*}
+\oint_{\partial D(6+i,3)} (\overline{z} - i ) ^2 dz &= \int_0^1  ( (6 - i+3e^{ - 2 \pi i t}) - i ) ^2  3e^{2 \pi i (t+ 1/4 )}  dt\\
+&= \int_0^1 (36+108 i)+27 i e^{-2 i \pi  t}+(72+96 i) e^{2 i \pi  t}  dt\\
+&= 36 + 108 i
+\end{align*}
+
+
+\section{Problem  43}
+\subsection{Question}
+If $f$ is a holomorphic polynomial and if
+\[\oint_{\partial D(0,1)} f(z) \overline{z}^j dz =0, \quad j=0,1,2,\dots,\]
+then prove that $f \equiv 0$.
+\subsection{Answer}
+
+
+
+
+
+\end{document}

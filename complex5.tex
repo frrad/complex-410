@@ -1,0 +1,140 @@
+\documentclass[11pt]{article}
+
+
+
+
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{setspace}
+\pagestyle{fancyplain}
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}
+\begin{document}
+
+\lhead{Frederick Robinson}
+\rhead{Math 410-3: Complex Analysis}
+
+
+
+\title{Homework 5}
+\author{Frederick Robinson}
+\date{16 May 2011}
+\maketitle
+
+
+\section*{Chapter 5}
+
+\section{Problem 1}
+\subsection{Question}
+Let $f$ be holomorphic on a neighborhood of $\overline{D}(P,r)$. Suppose that $f$ is not identically zero on $D(P,r)$. Prove that $f$ has at most finitely many zeros in $D(P,r)$.
+\subsection{Answer}
+\begin{proof}
+Suppose towards a contradiction that $f$ has infinitely many zeros in $D(P,r)$.  Then the set of zeros has a limit point in the closure of $D(P,r)$. So, since $f$ is holomorphic on a neighborhood of $\overline{D}(P,r)$, and we can assume this neighborhood to be connected, $f = 0$ as desired.
+\end{proof}
+
+
+\section{Problem 2}
+\subsection{Question}
+Let $f,g$ be continuous on $\overline{D}(0,1)$, holomorphic on $D(0,1)$. Assume that $f$ has zeros at $P_1,P_2,\dots, P_k \in D(0,1)$ and no zero in $\partial D(0,1)$. Let $\gamma$ be the boundary circle of $\overline{D}(0,1)$, traversed counterclockwise. Compute
+\[\frac{1}{2 \pi i } \oint_\gamma \frac{f'(z)}{f(z)} \cdot g(z) dz.\]
+\subsection{Answer}
+If we evaluate this integral on a small neighborhood $D_i$ containing only one $P_i$ we just get
+\[\ \int_{\partial D_i} \frac{f'(z) }{f(z)} g(z) d z = \int_{\partial D_i} \frac{d_i g(z)}{z - P_i} d z = 2 \pi i d_i g(P_i) \]
+where $d_i$ is the vanishing order of $f$ at $P_i$.
+
+So, integrating around all of $\gamma$ we get
+\[\sum_i d_i g(P_i)\]
+\section{Problem 6}
+\subsection{Question}
+Let $f : D(0,1) \to \mathbb{C}$ be holomorphic and nonvanishing. Prove that $f$ has well-defined holomorphic logarithm on $D(0,1)$ by showing that the differential equation 
+\[ \frac{\partial}{\partial z} g(z) = \frac{f'(z)}{f(z)}\]
+has a suitable solution and checking that this solution $g$ does the job.
+\subsection{Answer}
+$f$ is nonvanishing, so $f'/f$ is holomorphic. By Thm 1.5.3, there exists a holomorphic solution $g(z)$ in $D(0,1)$. To verify $g = \log f$, we substitute $f = e^g$ into the equation:
+\[\frac{f'}{f} = \frac{g' e^g}{e^g} = g'\]
+
+\section{Problem 10a}
+\subsection{Question}
+Estimate the number of zeros of $f(z) = z^8 + 5 z^7 -20$ in $D(0,6)$.
+\subsection{Answer}
+We verify that $|5z^7 - 20 | \leq 5 \cdot 6^7 + 20 < 6^8 = |z^8|$. Hence, the number of zeros is just 8.
+
+
+\section{Problem 10d}
+\subsection{Question}
+Estimate the number of zeros of $f(z) = z^{10} + 10 ze ^{z+1} - 9 $ in $D(0,1)$.
+\subsection{Answer}
+If $|z| =1 $, $z \neq -1$ then $|z^{10} -9| \leq 10 < 10 |e^{z+1}| = |10 ze^{z+1}|$. If $z=-1$, however we just observe $|z^{10} - 9| = 8 < 10 = |10 ze^{z+1}|$. Thus  counting the number of zeros of $10ze^{z+1}$ we have 1.
+
+\section{Problem 11}
+\subsection{Question}
+Imitate the proof of the argument principle to prove the following formula: If $f: U \to \mathbb{C}$ is holomorphic in $U$ and invertible, $P \in U$, and if $D(P,r)$ is a sufficiently small disc about $P$, then
+\[f^{-1}(w) = \frac{1}{2 \pi i} \oint_{\partial D(P,r)} \frac{\zeta f'(\zeta)}{f(\zeta) - w} d \zeta\]
+for all $w$ in some disc $D(f(P),r_1),r_1 >0$ sufficiently small. Derive from this formula
+\[(f^{-1})'(w) = \frac{1}{2 \pi i} \oint_{\partial D(P,r)} \frac{\zeta f'(\zeta)}{(f(\zeta) - w)^2} d \zeta.\]
+Set $Q = f(P)$. Integrate by parts and use some algebra to obtain
+\begin{equation} \label{star} (f^{-1})'(w) = \frac{1}{2 \pi i } \oint _{\partial D(P,r)} \left( \frac{1}{f(\zeta) - Q} \right) \cdot \left( 1 - \frac{w-Q}{f(\zeta) - Q} \right) ^{-1} d \zeta. \end{equation}
+Let $a_k$ be the $k^\mathrm{th}$ coefficient of the power series expansion of $f^{-1}$ about the point $Q$:
+\[f^{-1} (w) = \sum_{k=0}^ \infty a_k (w - Q)^k.\]
+Then the formula (\ref{star}) may be expanded and integrated term by term (prove this!) to obtain
+\begin{align*}
+na_n & =  \frac{1}{2 \pi i} \oint_{\partial D(P,r)} \frac{1}{|f(\zeta) - Q|^n} d \zeta\\
+& =  \frac{1 }{(n-1)!} \left( \frac{\partial}{\partial \zeta} \right) ^{n-1} \left. \frac{(\zeta - P)^n}{[f(\zeta) - Q]^n} \right|_{\zeta= P}. \\
+\end{align*}
+This is called \emph{Lagrange's formula}.
+\subsection{Answer}
+By problem 6 applied to $F(z) - \omega$ we have
+\[f^{-1}(w) = \frac{1}{2 \pi i} \int_{\partial D(P,r)} \frac{F'(\zeta) \zeta }{F(\zeta)} d \zeta = \frac{1}{2 \pi i } \int_{\partial D(P,r)} \frac{f'(\zeta)\zeta}{f(\zeta) - w} d \zeta \]
+and hence
+\[ (f^{-1})'(w) = \frac{1}{2 \pi i } \int_{ \partial D (P,r)} \frac{f'(\zeta)\zeta}{(f(\zeta) -w)^2} d\zeta\]
+Integrating by parts, reveals
+\[(f^{-1})'(w) = \frac{1}{2 \pi i}  \int_{\partial D(P,r)} \zeta d\left( \frac{-1}{f(\zeta) -w} \right) = \frac{1}{2 \pi i} \int_{\partial D(P,r)} \frac{1}{f(\zeta) - w} d\zeta\]
+Write
+\[\frac{1}{f(\zeta) - w} = \left( \frac{1}{f(\zeta) - Q}\right) \left( 1 - \frac{w -Q}{f(\zeta) - Q} \right)^{-1} = \sum_{k=0}^\infty \left( \frac{1}{f(\zeta) - Q} \right)^{k+1} (w- Q)^k\]
+The radius of convergence is inf$_\zeta |f(\zeta) - Q| > r_1$. Integrating with respect to $w$, we have $f^{-1}(w) = \sum_0^\infty a_k ( w - Q)^k$ where
+\[ka_k = \frac{1}{2\pi i } \int_{\partial D(P,r)} \frac{1}{(f(\zeta) - Q)^k} d\zeta = \left. \frac{1}{(k-1)!} \left( \frac{\partial}{\partial \zeta} \right)^{k-1} \frac{(\zeta - P)^k }{[f(\zeta) - Q]^k} \right|_{\zeta = P}\]
+
+
+\section{Problem 13}
+\subsection{Question}
+{\bf Prove: } If $f$ is a polynomial on $\mathbb{C}$, then the zeros of $f'$ are contained in the closed convex hull of the zeros of $f$. (Here the \emph{closed convex hull} of a set $S$ is the intersection of all closed convex sets that contain $S$.) [\emph{Hint:} If the zeros of $f$ are contained in a half plane $V$, then so are the zeros of $f'$.]
+\subsection{Answer}
+First rewrite $f$ as a product of terms $(z-P)$ for all its roots.
+\[f(x) = \prod_i (z - P_k).\]
+Assume $f'(Q) =0 \neq f(Q)$ as, if both are zero, then  the zero of $f'$ is written as a trivial linear combination of zeros of $f$.
+\[0 = \frac{f'(Q)}{f(Q)} = \sum _i \frac{1}{Q - P_i} = \sum_i \frac {1}{Q - P_i} = \sum_i \frac{\overline{Q}  - \overline{P}_i}{|Q - P_i|^2}\]
+Denoting 
+\[x_i = \frac{1/|Q - P_i | ^2 }{\sum_i 1/ |Q - P_i|^2}\]
+we have
+\[Q = \sum_i x_i P_i\]
+But $0 \leq x_i \leq 1, \sum_i x_i =1$. Thus, we have explicitly demonstrated each zero of the derivative as a convex linear combination of the zeros of the original function, and are done. 
+
+
+\section{Problem 14}
+\subsection{Question}
+Let $P_t(z)$ be a polynomial in $z$ for each fixed value of $t$, $0 \leq t \leq 1$. Suppose that $P_t(z)$ is continuous in $t$ in the sense that
+\[P_t (z) = \sum_{j=0}^N a_j(t) z^j\]
+and each $a_j(t) $ is continuous. Let $\mathcal{Z} = \{ (z,t) \mid P_t(z) = 0\}$. By continuity, $\mathcal{Z}$ is closed in $\mathbb{C} \times [0,1]$. If $P_{t_0}(z_0) =0$ and $(\partial / \partial z)P_{t_0}(z) |_{z= z_0} \neq 0$, then show, using the argument principle, that there is an $\epsilon > 0$ such that for $t$ suficiently near $t_0$ there is a unique $z \in D(z_0, \epsilon)$ with $P_t(z) =0$. What can you say if $P_{t_0} ( \cdot )$ vanishes to order $k$ at $z_0$?
+\subsection{Answer}
+Let 
+\[N(z,r,t) = \frac{1}{2 \pi i} \int_{\partial D(z,r)} \frac{p'_t(\zeta)}{p_t(\zeta)} d \zeta,\]
+Then, $N(z_0, r, t_0)=1$ for some sufficiently small $\epsilon$. As $\partial_zP_{t_0}(z_0) \neq 0$, we have $\partial_zP_t(z_0)\neq 0$ for $t$ suffficiently close to $t_0$. Hence, for such $t$, $N(z_0,\epsilon, t)$ is defined and equal to 1.
+
+When the vanishing has order greater than 1, it may split into distinct roots. 
+\section{Problem 18}
+\subsection{Question}
+Let $p_t(z) = a_0(t) + a_1(t)z+ \cdots + a_n(t) z^n$ be a polynomial in which the coefficients depend continuously on a parameter $t \in (-1,1)$. Prove that if the roots of $p_{t_0}$ are distinct (no multiple roots), for some fixed value of the parameter, then the same is true for $p_t$ when $t$ is sufficiently close to $t_0$---\emph{provided} that the degree of $p_t$ remains the same as the degree of $p_{t_0}$.
+\subsection{Answer}
+When $a_n(t)$ remains nonzero as $t$ moves, the simpleness of roots is controlled by the discriminant $D(t) = D(p_t)$ of $p(z)$, which is a polynomial of its coefficients. As $D(t) \neq 0$ is an open condition, we are done.
+
+
+\end{document}
